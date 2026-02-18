@@ -1,0 +1,185 @@
+import { useEffect, useState } from "react";
+import api from "../../shared/api";
+import { useBranding } from "../../shared/hooks/useBranding";
+import { Users, Book, IndianRupee, TrendingUp } from "lucide-react";
+import {
+  ResponsiveContainer,
+  AreaChart,
+  Area,
+  XAxis,
+  YAxis,
+  Tooltip,
+} from "recharts";
+
+export default function AdminDashboard() {
+  const brand = useBranding();
+  const primary = brand.colors?.primary || "#0f172a";
+
+  const [stats, setStats] = useState(null);
+  const [chartData, setChartData] = useState([]);
+
+  // ⭐ LOAD REAL DATA
+  useEffect(() => {
+    async function load() {
+      try {
+        const [statsRes, chartRes] = await Promise.all([
+          api.get("/adminDashboard/dashboard"),
+          api.get("/adminAnalytics/revenue"),
+        ]);
+
+        setStats(statsRes.data);
+        setChartData(chartRes.data);
+      } catch (err) {
+        console.error("Analytics load error:", err);
+      }
+    }
+
+    load();
+  }, []);
+
+  if (!stats)
+    return (
+      <div className="flex h-screen items-center justify-center text-[13px] text-slate-400 font-medium tracking-tight animate-pulse">
+        Syncing academy data...
+      </div>
+    );
+
+  return (
+    <div className="max-w-[1400px] mx-auto p-6 lg:p-12 space-y-12 bg-white min-h-screen">
+
+      {/* HEADER */}
+      <div className="flex justify-between items-end">
+        <div>
+          <h1 className="text-xl font-bold text-slate-900 tracking-tight">
+            Intelligence
+          </h1>
+          <p className="text-[13px] text-slate-500 font-medium mt-1">
+            Real-time performance metrics
+          </p>
+        </div>
+      </div>
+
+      {/* ===== STATS ===== */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <StatCard
+          title="Portfolio"
+          value={stats.courses.total}
+          sub="Active Courses"
+          icon={<Book size={16} />}
+        />
+
+        <StatCard
+          title="Community"
+          value={stats.students.total}
+          sub="Active Students"
+          icon={<Users size={16} />}
+        />
+
+        <StatCard
+          title="Earnings"
+          value={`₹${stats.revenue.total}`}
+          sub="Net Revenue"
+          icon={<IndianRupee size={16} />}
+        />
+      </div>
+
+      {/* ===== REAL ANALYTICS GRAPH ===== */}
+      <div className="space-y-6">
+        <div className="flex items-center justify-between px-2">
+          <h3 className="text-[11px] font-bold text-slate-400 uppercase tracking-[0.2em]">
+            Growth Curve
+          </h3>
+        </div>
+
+        <div className="bg-slate-50/50 border border-slate-100 rounded-[2rem] p-8 shadow-sm">
+          <div className="h-72">
+            <ResponsiveContainer width="100%" height="100%">
+              <AreaChart
+                data={chartData}
+                margin={{ top: 10, right: 10, left: -20, bottom: 0 }}
+              >
+                <defs>
+                  <linearGradient id="colorRev" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="5%" stopColor={primary} stopOpacity={0.1} />
+                    <stop offset="95%" stopColor={primary} stopOpacity={0} />
+                  </linearGradient>
+                </defs>
+
+                <XAxis
+                  dataKey="name"
+                  axisLine={false}
+                  tickLine={false}
+                  tick={{ fontSize: 10, fill: "#94a3b8", fontWeight: 600 }}
+                />
+
+                <YAxis hide />
+
+                <Tooltip
+                  contentStyle={{
+                    borderRadius: "12px",
+                    border: "none",
+                    boxShadow:
+                      "0 10px 15px -3px rgba(0,0,0,0.1)",
+                    fontSize: "12px",
+                  }}
+                />
+
+                {/* Revenue */}
+                <Area
+                  type="monotone"
+                  dataKey="revenue"
+                  stroke={primary}
+                  strokeWidth={2.5}
+                  fillOpacity={1}
+                  fill="url(#colorRev)"
+                />
+
+                {/* Students */}
+                <Area
+                  type="monotone"
+                  dataKey="students"
+                  stroke="#cbd5e1"
+                  strokeWidth={2}
+                  strokeDasharray="5 5"
+                  fill="transparent"
+                />
+              </AreaChart>
+            </ResponsiveContainer>
+          </div>
+        </div>
+      </div>
+
+      {/* ===== HIGHLIGHT ===== */}
+      <div className="bg-slate-900 rounded-[2rem] p-8 text-white">
+        <h4 className="text-[10px] text-slate-400 uppercase tracking-widest">
+          Market Leader
+        </h4>
+
+        <p className="text-xl font-bold mt-2">
+          {stats.courses.topCourse || "Calculating..."}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+/* ===== STAT CARD ===== */
+
+function StatCard({ title, value, sub, icon }) {
+  return (
+    <div className="space-y-3 px-2">
+      <div className="flex items-center gap-2 text-slate-400">
+        {icon}
+        <span className="text-[10px] font-bold uppercase tracking-widest">
+          {title}
+        </span>
+      </div>
+
+      <h3 className="text-3xl font-bold text-slate-900 tracking-tighter">
+        {value}
+      </h3>
+
+      <p className="text-[12px] text-slate-500 font-medium">{sub}</p>
+    </div>
+  );
+}

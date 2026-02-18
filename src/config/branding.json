@@ -1,0 +1,79 @@
+{
+  "default": {
+    "siteName": "LexAcademy",
+    "tagline": "Professional Legal Education for Modern Practitioners",
+
+    "primaryColor": "#2b6cb0",
+    "theme": "formalLight",
+
+    "logo": "/lexacademy-logo.png",
+    "students": "5K",
+
+    "colors": {
+      "primary": "#2b6cb0",
+      "accent": "white"
+    },
+
+    "hero": {
+      "title": "Master Law with Confidence.",
+      "subtitle": "Industry-focused legal training designed for law students, junior advocates, and legal professionals preparing for real-world practice.",
+      "image": "/hero.jpg",
+
+    
+      "bunnyVideoId": "f2063ed6-271b-4210-bfbf-e4510382acf2",
+      "poster": "/law-hero.png"
+    },
+
+    "preview": {
+      "badge": "Trusted Legal Training",
+      "title": "Practical Legal Learning",
+      "highlight": "Built for Real Practice.",
+      "description": "Structured courses covering core legal concepts, procedural law, drafting skills, and case-based learning — guided by experienced legal professionals.",
+
+      
+      "bunnyVideoId": "f2063ed6-271b-4210-bfbf-e4510382acf2",
+
+     
+      "libraryId": "594138",
+
+      "poster": "/law-hero.png",
+
+      "videoUrl": "https://youtu.be/8nOOE8ZAzqU?si=YyWEkz_gvDEUAK6E",
+
+      "perks": [
+        { "value": "PRACTICAL", "label": "Case-Based Learning" },
+        { "value": "EXPERT", "label": "Mentor-Led Sessions" }
+      ]
+    },
+
+    "reviews": [
+      {
+        "name": "Adv. Neha George",
+        "role": "Junior Advocate",
+        "rating": 5,
+        "text": "The drafting modules and procedural law explanations helped me gain confidence in real court work."
+      },
+      {
+        "name": "Rahul Krishnan",
+        "role": "Final Year Law Student",
+        "rating": 5,
+        "text": "Clear, practical, and focused on real legal skills — not just theory."
+      },
+      {
+        "name": "Adv. Anandhu Sundaran",
+        "role": "Litigation Associate",
+        "rating": 4,
+        "text": "Excellent refresher modules for procedural law and documentation."
+      }
+    ],
+
+    "contact": {
+      "email": "support@lexacademy.in",
+      "phone": "+91 9400 690 911",
+      "whatsapp": "+91 9400 690 911",
+      "address": "Kochi, Kerala, India",
+      "supportName": "Academic Support Team",
+      "image": "/law-hero.png"
+    }
+  }
+}
