@@ -89,12 +89,12 @@ export default function CourseCurriculum() {
           </h2>
 
           {/* ASSESSMENT TOGGLE */}
-          <button
+          {/* <button
             onClick={() => setAssessmentOpen(!assessmentOpen)}
             className="px-4 py-2 bg-indigo-600 rounded-lg text-sm"
           >
             🎓 Final Assessment
-          </button>
+          </button> */}
         </div>
 
         {/* ===== CONTENT ===== */}
@@ -103,7 +103,7 @@ export default function CourseCurriculum() {
           {/* 🎓 COLLAPSIBLE ASSESSMENT BUILDER */}
           <div className="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
             
-            <button
+            {/* <button
               onClick={() => setAssessmentOpen(!assessmentOpen)}
               className="w-full flex justify-between items-center px-5 py-4 hover:bg-slate-800 transition"
             >
@@ -114,7 +114,7 @@ export default function CourseCurriculum() {
               <span className={`transition ${assessmentOpen ? "rotate-180" : ""}`}>
                 ▼
               </span>
-            </button>
+            </button> */}
 
             {assessmentOpen && (
               <div className="p-5 border-t border-slate-800">

@@ -32,8 +32,10 @@ export default function UnitSidebar({
           <span className="text-[10px] text-indigo-400 uppercase tracking-widest">
             Course Structure
           </span>
-
-          <h1 className="text-sm font-bold truncate" style={{fontSize:20}}>
+          <h1
+            className="font-bold leading-tight line-clamp-2"
+            style={{ fontSize: 20 }}
+          >
             {course.title}
           </h1>
         </div>
@@ -58,10 +60,9 @@ export default function UnitSidebar({
             key={u.id}
             onClick={() => setActiveUnit(u)}
             className={`w-full text-left px-4 py-3 rounded-lg transition group
-              ${
-                activeUnit?.id === u.id
-                  ? "bg-indigo-600/20 text-indigo-400 border border-indigo-500/30"
-                  : "hover:bg-slate-800 border border-transparent"
+              ${activeUnit?.id === u.id
+                ? "bg-indigo-600/20 text-indigo-400 border border-indigo-500/30"
+                : "hover:bg-slate-800 border border-transparent"
               }`}
           >
             <div className="flex items-center gap-3">

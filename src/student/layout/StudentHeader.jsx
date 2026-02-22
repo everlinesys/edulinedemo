@@ -16,7 +16,7 @@ export default function StudentHeader({ onMenuClick }) {
                 <button
                     onClick={onMenuClick}
                     className="lg:hidden text-gray-700 "
-                    style={{background:"transparent"}}
+                    style={{background:"transparent", color: "gray", padding:"0px"}}
                 >
                     <MdMenu size={24} />
                 </button>

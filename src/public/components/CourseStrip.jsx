@@ -97,7 +97,7 @@ export default function FeaturedCoursesStrip() {
                                             <Star size={14} fill="currentColor" /> {course.rating || 4.8}
                                         </div>
                                         <div className="flex items-center gap-1 text-slate-400 font-bold text-xs">
-                                            <BookOpen size={14} /> {course.lessons || 12}
+                                            <BookOpen size={14} /> {course.lessonsCount.toString() || 12}
                                         </div>
                                     </div>
                                     <div className="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-300 group-hover:bg-emerald-500 group-hover:text-white transition-colors">

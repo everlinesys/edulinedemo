@@ -201,7 +201,45 @@ export default function UnitEditor({ unit }) {
           {chapters.length} chapters
         </span>
       </div>
+      {/* ===== CHAPTER LIST ===== */}
+      <div className="space-y-3">
+        {chapters.map((c, index) => (
+          <div
+            key={c.id}
+            className="bg-slate-900 border border-slate-800 p-5 rounded-xl flex justify-between"
+          >
+            <div>
+              <h4 className="font-semibold text-white">
+                {index + 1}. {c.title}
+              </h4>
 
+              {c.description && (
+                <p className="text-sm text-slate-400 mt-1">
+                  {c.description}
+                </p>
+              )}
+            </div>
+
+            <div className="flex gap-4">
+              <button
+                onClick={() => startEdit(c)}
+                className="text-indigo-400 text-sm"
+                style={{ background: "transparent", padding: "0px" }}
+              >
+                Edit
+              </button>
+
+              <button
+                onClick={() => deleteChapter(c.id)}
+                className="text-red-400 text-sm"
+                style={{ background: "transparent", padding: "0px" }}
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
       {/* ===== CREATE / EDIT FORM ===== */}
       <form
         onSubmit={editing ? saveEdit : createChapter}
@@ -237,8 +275,8 @@ export default function UnitEditor({ unit }) {
           {file
             ? file.name
             : editing
-            ? "Select new video to replace (optional)"
-            : "Click to select video"}
+              ? "Select new video to replace (optional)"
+              : "Click to select video"}
         </label>
 
         {uploading && (
@@ -275,43 +313,7 @@ export default function UnitEditor({ unit }) {
         </div>
       </form>
 
-      {/* ===== CHAPTER LIST ===== */}
-      <div className="space-y-3">
-        {chapters.map((c, index) => (
-          <div
-            key={c.id}
-            className="bg-slate-900 border border-slate-800 p-5 rounded-xl flex justify-between"
-          >
-            <div>
-              <h4 className="font-semibold text-white">
-                {index + 1}. {c.title}
-              </h4>
 
-              {c.description && (
-                <p className="text-sm text-slate-400 mt-1">
-                  {c.description}
-                </p>
-              )}
-            </div>
-
-            <div className="flex gap-4">
-              <button
-                onClick={() => startEdit(c)}
-                className="text-indigo-400 text-sm"
-              >
-                Edit
-              </button>
-
-              <button
-                onClick={() => deleteChapter(c.id)}
-                className="text-red-400 text-sm"
-              >
-                Delete
-              </button>
-            </div>
-          </div>
-        ))}
-      </div>
     </div>
   );
 }

@@ -86,7 +86,7 @@ export default function WatchCourse() {
   }
 
   return (
-    <div className={`${theme.layout.container} min-h-screen md:ml-0 ml-12`}>
+    <div className={`${theme.layout.container} min-h-screen md:ml-0 `}>
 
       <MobileSyllabus
         units={units}
@@ -139,7 +139,7 @@ export default function WatchCourse() {
         </aside>
 
         {/* ===== CONTENT ===== */}
-        <main className="flex-grow">
+        <main className="flex-grow px-2">
           <div className="py-4 lg:p-10 max-w-4xl mx-auto space-y-6">
 
             {/* VIDEO */}

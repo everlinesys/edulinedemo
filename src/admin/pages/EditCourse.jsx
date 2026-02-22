@@ -116,8 +116,8 @@ export default function EditCourse() {
   }
 
   return (
-    <div className="max-w-3xl mx-auto space-y-8">
-      <h2 className="text-2xl font-semibold">Edit Course</h2>
+    <div className="max-w-3xl mx-auto space-y-8 px-2">
+      <h2 className="text-2xl font-semibold">Course Control</h2>
 
       <form onSubmit={save} className="space-y-6">
 
