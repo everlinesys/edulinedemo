@@ -1,9 +1,9 @@
 export default function VideoPlayer({ videoId }) {
   if (!videoId) return null;
 
-  const src = `https://iframe.mediadelivery.net/play/${import.meta.env.VITE_BUNNY_LIBRARY_ID
-    }/${videoId}`;
-
+  const src = `https://player.mediadelivery.net/embed/${import.meta.env.VITE_BUNNY_LIBRARY_ID
+    }/${videoId}?autoplay=false&loop=false&muted=false&preload=false&responsive=true`;
+               
   // return (
   //   <div className="w-full h-auto rounded-xl aspect-video relative overflow-hidden my-5">
   //     <iframe
