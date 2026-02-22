@@ -83,7 +83,7 @@ export default function FeaturedCoursesStrip() {
                                 <div className="flex items-center gap-2">
                                     <div className="w-5 h-5 rounded-md bg-slate-100 flex items-center justify-center text-[10px] font-bold">E</div>
                                     <span className="text-[11px] text-slate-400 font-bold uppercase tracking-tighter">
-                                        {course.provider || "EduLine Institute"}
+                                       {brand.siteName || "LMS Platform"}
                                     </span>
                                 </div>
 

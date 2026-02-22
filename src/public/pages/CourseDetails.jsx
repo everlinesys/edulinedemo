@@ -16,6 +16,7 @@ export default function CourseDetails() {
   const [owned, setOwned] = useState(false);
 
   const primary = brand?.primaryColor || "#059669";
+  const accent = brand?.accentColor || "#ffffff";
 
   useEffect(() => {
     async function load() {
@@ -146,9 +147,9 @@ export default function CourseDetails() {
       </div>
 
       {/* ===== CURRICULUM ===== */}
-      <div className="max-w-5xl mx-auto px-6 py-16">
+      <div className="max-w-5xl mx-auto px-6 py-16 text-black" style={{ color: primary, background: accent }}>
 
-        <h2 className="text-2xl font-bold mb-8">
+        <h2 className="text-2xl font-bold ">
           Course Curriculum
         </h2>
 
