@@ -26,7 +26,7 @@ export default function VideoPlayer({ videoId }) {
   return (
     <div style={{ position: "relative", paddingTop: "56.25%" }}>
       <iframe
-        src="https://player.mediadelivery.net/embed/594138/231392af-8a40-4586-9879-897d3f02b853?autoplay=false&loop=false&muted=false&preload=false&responsive=true"
+        src={src}
         loading="lazy"
         style={{
           border: 0,
