@@ -97,7 +97,7 @@ export default function CourseDetails() {
             </p>
 
             <div className="text-3xl font-bold">
-              ₹{course.price}
+              ₹{course.price} <span className="line-through text-white/70 text-2xl"> ₹{course.oldPrice}</span>
             </div>
 
             {/* ACTION BUTTONS */}
