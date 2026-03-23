@@ -66,7 +66,7 @@ export default function CourseDetails() {
           razorpay_signature: response.razorpay_signature,
           courseId,
         });
-        window.location = `/watch/${courseId}`;
+        window.location = `/student/watch/${courseId}`;
       },
     };
 
@@ -112,7 +112,7 @@ export default function CourseDetails() {
 
             {user && owned && (
               <button
-                onClick={() => (window.location = `/watch/${courseId}`)}
+                onClick={() => (window.location = `/student/watch/${courseId}`)}
                 className="px-8 py-3 bg-green-600 text-white rounded-xl font-semibold"
               >
                 Continue Learning

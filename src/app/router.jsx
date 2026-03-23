@@ -35,6 +35,7 @@ export const router = createBrowserRouter([
             { path: "courses", element: <Courses /> },
             { path: "contact", element: <Contact /> },
             { path: "courses/:courseId", element: <CourseDetails /> },
+            { path: "course/:courseId", element: <CourseDetails /> },
 
 
         ],
@@ -54,7 +55,7 @@ export const router = createBrowserRouter([
                     { path: "profile", element: <StudentProfile /> },
                     { path: "security", element: <StudentSecurity /> },
                     { path: "history", element: <StudentHistory /> },
-                    { path: "watch/:courseId", element: <WatchCourse /> }
+                    { path: "watch/:courseId", element: <WatchCourse /> },
 
                 ],
             },
